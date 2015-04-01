@@ -1,7 +1,15 @@
 Cassandra 2.0.13 as a docker container using java8
 ## Quickstart
+
 ```
 docker run --name="0x4139-cassandra" -d -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042  -e PUBLIC=127.0.0.1 -v /opt/casssandra/data:/var/lib/cassandra/data 0x4139/cassandra
+
+```
+
+##Seed mode
+
+```
+docker run --name="0x4139-cassandra" -d -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -e SEED=YOUR_SEED_IP  -e PUBLIC=127.0.0.1 -v /opt/casssandra/data:/var/lib/cassandra/data 0x4139/cassandra
 
 ```
 
