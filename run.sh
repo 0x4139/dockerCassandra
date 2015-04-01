@@ -4,7 +4,7 @@
 ADDR=$(hostname --ip-address)
 PUBLIC=${PUBLIC:=$ADDR}
 # Check if a seed was provided
-SEED=${SEED:=$ADDR}
+SEED=${SEED:=$PUBLIC}
 
 echo "IP Address is: $ADDR"
 echo "Public IP Address is: $PUBLIC"
