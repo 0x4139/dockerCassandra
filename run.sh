@@ -20,12 +20,16 @@ if [ ! -f /root/.cassconfig ]; then
     echo MAX_HEAP_SIZE="4G" >> $ENV_FILE
     echo HEAP_NEWSIZE="800M" >> $ENV_FILE
     # cassandra.yaml configuration
-    sed -i -e "s/cluster_name.*/cluster_name: '0x4139'/"  $CONF_FILE
-    sed -i -e "s/listen_address.*/listen_address: $ADDR/"  $CONF_FILE
+      sed -i -e "s/listen_address.*/listen_address: $ADDR/"  $CONF_FILE
     sed -i -e "s/broadcast_rpc_address.*/broadcast_rpc_address: $PUBLIC/"  $CONF_FILE
     sed -i -e "s/\# broadcast_address.*/broadcast_address: $PUBLIC/"  $CONF_FILE
-    sed -i -e "s/- seeds.*/- seeds: \"$SEED\"/"  $CONF_FILE
+
+    sed -i -e "s/- seeds.*/- seeds: \"$PUBLIC\"/"  $CONF_FILE
     sed -i -e "s/rpc_address.*/rpc_address: $ADDR/"  $CONF_FILE
+
+    #adds authethication
+    sed -i -e "s/authenticator.*/authenticator: PasswordAuthenticator/"  $CONF_FILE
+    sed -i -e "s/authorizer.*/authorizer: CassandraAuthorizer/"  $CONF_FILE
 
     touch /root/.cassconfig
 fi
