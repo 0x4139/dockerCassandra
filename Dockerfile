@@ -7,6 +7,8 @@ COPY apache-cassandra-2.0.13-bin.tar.gz /tmp/
 
 RUN mkdir /opt/cassandra
 RUN tar -xzf /tmp/apache-cassandra-2.0.13-bin.tar.gz  --strip-components=1 -C "/opt/cassandra"
+COPY jna-4.1.0.jar /opt/cassandra/lib/
+
 RUN rm -rf /tmp/*
 
 #copy run script and give it the apropiate rights
