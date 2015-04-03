@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Grab the container IP
-ADDR=$(hostname --ip-address)
+ADDR=${ADDR:=$(hostname --ip-address)}
 PUBLIC=${PUBLIC:=$ADDR}
 # Check if a seed was provided
 SEED=${SEED:=$PUBLIC}
